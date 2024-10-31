@@ -8,9 +8,6 @@ from src.WsManager import WsManager
 from src.filter import filter
 from src.models import Datas
 from src.models import Device
-from src.models import Status
-from src.models import PlayerName
-from src.models import Players
 
 
 app = FastAPI()
@@ -30,24 +27,24 @@ app.add_middleware(
 async def get():
     return HTMLResponse("Hello World!")
 
-@app.post("/id")
-async def id_endpoint(device:Device):
-    """
-    デバイスのIDを受け取るエンドポイント
-    """
-    print("device", device)
-    #一つ目のデバイスIDを取得する
-    if filters.get_count() == 0 :
-        filters.set_deviceId_1(device.id)
-        print(f"player1: {device.id}")
-        filters.set_count(1)
-        return {"player": "1"}
-    #二つ目のデバイスIDを取得する
-    elif filters.get_count() == 1:
-        filters.set_deviceId_2(device.id)
-        filters.set_count(2)
-        print(f"player2: {device.id}")
-        return {"player": "2"}
+# @app.post("/id")
+# async def id_endpoint(device:Device):
+#     """
+#     デバイスのIDを受け取るエンドポイント
+#     """
+#     print("device", device)
+#     #一つ目のデバイスIDを取得する
+#     if filters.get_count() == 0 :
+#         filters.set_deviceId_1(device.id)
+#         print(f"player1: {device.id}")
+#         filters.set_count(1)
+#         return {"player": "1"}
+#     #二つ目のデバイスIDを取得する
+#     elif filters.get_count() == 1:
+#         filters.set_deviceId_2(device.id)
+#         filters.set_count(2)
+#         print(f"player2: {device.id}")
+#         return {"player": "2"}
     
 @app.get("/reset")
 async def reset_endpoint():

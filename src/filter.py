@@ -4,8 +4,8 @@ class filter:
     def __init__(self):
         self.heart = '0'  # 初期心拍数
         self.roomId = "0"#roomIdの取得
-        self.deviceId_1= "null"
-        self.deviceId_2= "null"
+        self.deviceId_1= "a"
+        self.deviceId_2= "b"
         self.count = 0
         self.status = "iteration"
         self.okCount = 0
