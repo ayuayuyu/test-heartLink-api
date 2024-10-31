@@ -57,15 +57,6 @@ async def reset_endpoint():
     """
     filters.allReset()
     return {"status": "reset"}
-    
-
-@app.get("/end")
-async def connect_start():
-    """
-    フロント側から受け取るstatus
-    """
-    filters.set_status("end")
-    return {"status": "end"}
         
 @app.post("/data")
 #それぞれの心拍数を取得するエンドポイント
@@ -82,14 +73,7 @@ async def data_endpoint(data: Datas):
     }
     # 全クライアントにメッセージを送信(JSON方式)
     await manager.broadcast(json.dumps(json_data),filters.get_roomId())
-    print(f"get_status: {filters.get_status()}")
-    if filters.get_status() == "iteration":
-        print("iteration")
-        return {"status":"iteration"}
-    elif filters.get_status() == "end":
-        print("end")
-        return {"status":"end"}
-    
+    return {"status":"status"}
 
 
 @app.websocket("/ws/{room_id}")
