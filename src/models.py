@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class Datas(BaseModel):
-    heartRate: str
+    heartRate: int
     player: str
     
 class Reset(BaseModel):
