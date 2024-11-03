@@ -8,6 +8,8 @@ from src.WsManager import WsManager
 from src.filter import filter
 from src.models import Datas
 from src.models import Device
+from src.models import Players
+from src.models import Names
 
 
 app = FastAPI()
@@ -45,6 +47,70 @@ async def get():
 #         filters.set_count(2)
 #         print(f"player2: {device.id}")
 #         return {"player": "2"}
+
+@app.post("/name")
+async def name_endpoint(data: Names):
+    """
+    名前を受け取るエンドポイント
+    """
+    if data.player == "1":
+        filters.set_name1(data.name)
+        return {"name": filters.get_name1}
+    elif data.player == "2":
+        filters.set_name2(data.name)
+        return {"name": filters.get_name2}
+    else:
+        return {"name": "erro"}
+    
+@app.post("/topicId")
+async def topicId_endpoint(data:Players):
+    if data.player == "1":
+        if filters.get_indexCount1() == 0:
+            filters.topicId[0] = data.id
+            filters.set_indexCount1(1)
+            return {"id" : data.id}
+        elif filters.get_indexCount1() == 1:
+            filters.topicId[2] = data.id
+            filters.set_indexCount1(2)
+            return {"id" : data.id}
+        else:
+            return {"id": "erro"}
+    elif data.player == "2":
+        if filters.get_indexCount2() == 0:
+            filters.topicId[1] = data.id
+            filters.set_indexCount2(1)
+            return {"id" : data.id}
+        elif filters.get_indexCount2() == 1:
+            filters.topicId[3] = data.id
+            filters.set_indexCount2(2)
+            return {"id" : data.id}
+        else:
+            return {"id": "erro"}
+    else:
+        return{"player": "erro"}
+    
+    
+@app.post("/topicArray")
+async def topicArray_endpoint(array: list[str]):
+    if filters.get_count() == 0:
+        filters.topicArray[0] = array
+        filters.set_count(1)
+        return {"array": array}
+    elif filters.get_count() == 1:
+        filters.topicArray[1] = array
+        filters.set_count(2)
+        return {"array": array}
+    elif filters.get_count() == 2:
+        filters.topicArray[2] = array
+        filters.set_count(3)
+        return {"array": array}
+    elif filters.get_count() == 3:
+        filters.topicArray[3] = array
+        filters.set_count(3)
+        return {"array": array}
+    else:
+        return{"array": "erro"}
+    
     
 @app.get("/reset")
 async def reset_endpoint():
@@ -69,7 +135,7 @@ async def data_endpoint(data: Datas):
         "heartRate2": manager.device_data.get(filters.get_deviceId_2()),
     }
     # 全クライアントにメッセージを送信(JSON方式)
-    await manager.broadcast(json.dumps(json_data),filters.get_roomId())
+    await manager.broadcast(json.dumps(json_data))
     return {"status":"status"}
 
 

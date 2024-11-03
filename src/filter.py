@@ -4,11 +4,15 @@ class filter:
     def __init__(self):
         self.heart = '0'  # 初期心拍数
         self.roomId = "0"#roomIdの取得
-        self.deviceId_1= "a"
-        self.deviceId_2= "b"
+        self.name1= "a"
+        self.name2= "b"
         self.count = 0
         self.status = "iteration"
         self.okCount = 0
+        self.indexCount1 = 0
+        self.indexCount2 = 0
+        self.topicId = []
+        self.topicArray = []
         
     #心拍数のセット
     def set_heart(self, heart_value: str):
@@ -27,19 +31,31 @@ class filter:
         return self.count
     
     def set_count(self,value:int):
-        self.count = value    
+        self.count = value 
         
-    def set_deviceId_1(self, deviceId: str):
-        self.deviceId_1 = deviceId
-        
-    def get_deviceId_1(self):
-        return self.deviceId_1
+    def get_indexCount1(self):
+        return self.indexCount1
     
-    def set_deviceId_2(self, deviceId: str):
-        self.deviceId_2 = deviceId
+    def set_indexCount1(self,value:int):
+        self.indexCount1 = value   
+    
+    def get_indexCount2(self):
+        return self.indexCount2
+    
+    def set_indexCount2(self,value:int):
+        self.indexCount2 = value   
         
-    def get_deviceId_2(self):
-        return self.deviceId_2
+    def set_name1(self, deviceId: str):
+        self.name1 = deviceId
+        
+    def get_name1(self):
+        return self.name1
+    
+    def set_name2(self, deviceId: str):
+        self.name2 = deviceId
+        
+    def get_name2(self):
+        return self.name2
     
     def set_status(self, status:str):
         self.status = status
@@ -56,8 +72,8 @@ class filter:
     def allReset(self):
         self.heart = '0'  # 初期心拍数
         self.roomId = "0"#roomIdの取得
-        self.deviceId_1= "null"
-        self.deviceId_2= "null"
+        self.name1= "null"
+        self.name2= "null"
         self.count = 0
         self.status = "iteration"
         self.okCount = 0
