@@ -73,10 +73,9 @@ async def data_endpoint(data: Datas):
     return {"status":"status"}
 
 
-@app.websocket("/ws/{room_id}")
-async def websocket_endpoint(websocket: WebSocket, room_id: str):
-    filters.set_roomId(room_id)
-    await manager.connect(websocket, room_id)
+@app.websocket("/ws")
+async def websocket_endpoint(websocket: WebSocket):
+    await manager.connect(websocket)
     try:
         while True:
             # クライアントからのメッセージ受信
@@ -89,6 +88,6 @@ async def websocket_endpoint(websocket: WebSocket, room_id: str):
                 "heartRate2": data,
             }
             # ルーム内の全クライアントにブロードキャスト(JSON形式)
-            await manager.broadcast(json.dumps(json_data), room_id)
+            await manager.broadcast(json.dumps(json_data))
     except WebSocketDisconnect:
-        manager.disconnect(websocket, room_id)
+        manager.disconnect(websocket)
