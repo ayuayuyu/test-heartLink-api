@@ -7,7 +7,7 @@ class filter:
         self.name1= "null"
         self.name2= "null"
         self.deviceId_1 = "1"
-        self.deviceId_1 = "2"
+        self.deviceId_2 = "2"
         self.count = 0
         self.status = "iteration"
         self.okCount = 0
