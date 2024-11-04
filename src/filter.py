@@ -99,6 +99,12 @@ class filter:
         self.roomId = "0"#roomIdの取得
         self.name1= "null"
         self.name2= "null"
+        self.deviceId_1 = "1"
+        self.deviceId_2 = "2"
         self.count = 0
         self.status = "iteration"
         self.okCount = 0
+        self.indexCount1 = 0
+        self.indexCount2 = 0
+        self.topicId = []
+        self.topicArray = []
