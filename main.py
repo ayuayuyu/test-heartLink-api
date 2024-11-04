@@ -70,22 +70,22 @@ async def topicId_endpoint(data:Players):
         if filters.get_indexCount1() == 0:
             filters.topicId[0] = data.id
             filters.set_indexCount1(1)
-            return {"id" : data.id}
+            return {"id" : {data.id}}
         elif filters.get_indexCount1() == 1:
             filters.topicId[2] = data.id
             filters.set_indexCount1(2)
-            return {"id" : data.id}
+            return {"id" : {data.id}}
         else:
             return {"id": "erro"}
     elif data.player == "2":
         if filters.get_indexCount2() == 0:
             filters.topicId[1] = data.id
             filters.set_indexCount2(1)
-            return {"id" : data.id}
+            return {"id" : {data.id}}
         elif filters.get_indexCount2() == 1:
             filters.topicId[3] = data.id
             filters.set_indexCount2(2)
-            return {"id" : data.id}
+            return {"id" : {data.id}}
         else:
             return {"id": "erro"}
     else:
@@ -97,26 +97,26 @@ async def topicArray_endpoint(array: list[str]):
     if filters.get_count() == 0:
         filters.topicArray[0] = array
         filters.set_count(1)
-        return {"array": array}
+        return {"array": {array}}
     elif filters.get_count() == 1:
         filters.topicArray[1] = array
         filters.set_count(2)
-        return {"array": array}
+        return {"array": {array}}
     elif filters.get_count() == 2:
         filters.topicArray[2] = array
         filters.set_count(3)
-        return {"array": array}
+        return {"array": {array}}
     elif filters.get_count() == 3:
         filters.topicArray[3] = array
         filters.set_count(3)
-        return {"array": array}
+        return {"array": {array}}
     else:
         return{"array": "erro"}
     
     
 @app.get("/getName")
 async def getName_endpoint():
-    return {"player1": filters.get_name1 ,"player2": filters.get_name2}
+    return {"player1": {filters.get_name1} ,"player2": {filters.get_name2}}
     
 @app.get("/reset")
 async def reset_endpoint():
