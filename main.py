@@ -116,7 +116,7 @@ async def topicArray_endpoint(array: list[str]):
     
 @app.get("/getName")
 async def getName_endpoint():
-    return {"player1": {filters.get_name1} ,"player2": {filters.get_name2}}
+    return {"player1": {filters.get_name1()} ,"player2": {filters.get_name2()}}
     
 @app.get("/reset")
 async def reset_endpoint():
