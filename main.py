@@ -56,11 +56,11 @@ async def name_endpoint(data: Names):
     if data.player == "1":
         filters.set_name1(data.name)
         print(f"name: {filters.get_name1()}")
-        return {"name": filters.get_name1()}
+        return {"name": {filters.get_name1()}}
     elif data.player == "2":
         filters.set_name2(data.name)
         print(f"name: {filters.get_name2()}")
-        return {"name": filters.get_name2()}
+        return {"name": {filters.get_name2()}}
     else:
         return {"name": "erro"}
     
