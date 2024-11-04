@@ -4,8 +4,10 @@ class filter:
     def __init__(self):
         self.heart = '0'  # 初期心拍数
         self.roomId = "0"#roomIdの取得
-        self.name1= "a"
-        self.name2= "b"
+        self.name1= "null"
+        self.name2= "null"
+        self.deviceId_1 = "1"
+        self.deviceId_1 = "2"
         self.count = 0
         self.status = "iteration"
         self.okCount = 0
@@ -29,6 +31,11 @@ class filter:
     
     def get_count(self):
         return self.count
+    
+    def get_deviceId_1(self):
+        return self.deviceId_1
+    def get_deviceId_2(self):
+        return self.deviceId_2
     
     def set_count(self,value:int):
         self.count = value 
