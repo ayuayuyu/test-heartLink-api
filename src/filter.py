@@ -14,7 +14,8 @@ class filter:
         self.indexCount1 = 0
         self.indexCount2 = 0
         self.topicId = []
-        self.topicArray = []
+        self.topicArray1 = []
+        self.topicArray2 = []
         
         
     def get_topicId(self):
@@ -26,14 +27,23 @@ class filter:
             self.topicId.append([])  # 空のリストを追加
         self.topicId[index].append(value)  # 指定インデックスに値を追加
 
-    def get_topicArray(self):
-        return self.topicArray
+    def get_topicArray1(self):
+        return self.topicArray1
 
-    def set_topicArray(self, index, value):
+    def set_topicArray1(self, index, value):
         # 必要に応じてリストの長さを拡張
         while len(self.topicArray) <= index:
-            self.topicArray.append([])  # 空のリストを追加
-        self.topicArray[index].append(value)  # 指定インデックスに値を追加
+            self.topicArray1.append([])  # 空のリストを追加
+        self.topicArray1[index].append(value)  # 指定インデックスに値を追加
+        
+    def get_topicArray2(self):
+        return self.topicArray2
+
+    def set_topicArray2(self, index, value):
+        # 必要に応じてリストの長さを拡張
+        while len(self.topicArray) <= index:
+            self.topicArray2.append([])  # 空のリストを追加
+        self.topicArray2[index].append(value)  # 指定インデックスに値を追加
     #心拍数のセット
     def set_heart(self, heart_value: str):
         self.heart = heart_value

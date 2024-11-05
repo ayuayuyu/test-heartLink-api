@@ -25,3 +25,7 @@ class Players(BaseModel):
 class Names(BaseModel):
     player: str
     name: str
+    
+class Array(BaseModel):
+    array1 : list[str]
+    array2 : list[str]

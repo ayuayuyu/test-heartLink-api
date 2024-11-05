@@ -10,6 +10,7 @@ from src.models import Datas
 from src.models import Device
 from src.models import Players
 from src.models import Names
+from src.models import Array
 
 
 app = FastAPI()
@@ -93,21 +94,25 @@ async def topicId_endpoint(data:Players):
     
     
 @app.post("/topicArray")
-async def topicArray_endpoint(array: list[str]):
+async def topicArray_endpoint(array:Array):
     if filters.get_count() == 0:
-        filters.set_topicArray(0,array)
+        filters.set_topicArray1(0,array.array1)
+        filters.set_topicArray2(0,array.array2)
         filters.set_count(1)
         return {"array": {array}}
     elif filters.get_count() == 1:
-        filters.set_topicArray(1,array)
+        filters.set_topicArray1(1,array.array1)
+        filters.set_topicArray2(1,array.array2)
         filters.set_count(2)
         return {"array": {array}}
     elif filters.get_count() == 2:
-        filters.set_topicArray(2,array)
+        filters.set_topicArray1(2,array.array1)
+        filters.set_topicArray2(2,array.array2)
         filters.set_count(3)
         return {"array": {array}}
     elif filters.get_count() == 3:
-        filters.set_topicArray(3,array)
+        filters.set_topicArray1(3,array.array1)
+        filters.set_topicArray2(3,array.array2)
         filters.set_count(3)
         return {"array": {array}}
     else:
