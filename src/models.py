@@ -2,7 +2,7 @@ from pydantic import BaseModel
 
 
 class Datas(BaseModel):
-    heartRate: int
+    heartRate: str
     player: str
     
 class Reset(BaseModel):
@@ -13,7 +13,7 @@ class Device(BaseModel):
     
 class Status(BaseModel):
     status: str
-    
+    a
 class PlayerName(BaseModel):
     player: str
     name: str
