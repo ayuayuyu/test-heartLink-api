@@ -13,7 +13,7 @@ class Device(BaseModel):
     
 class Status(BaseModel):
     status: str
-    a
+    
 class PlayerName(BaseModel):
     player: str
     name: str
