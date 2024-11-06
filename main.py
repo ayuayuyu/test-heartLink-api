@@ -99,22 +99,22 @@ async def topicArray_endpoint(array:Array):
         filters.set_topicArray1(0,array.array1)
         filters.set_topicArray2(0,array.array2)
         filters.set_count(1)
-        return {"array1": {array.array1},"array2": {array.array2}}
+        return {"array1": array.array1, "array2": array.array2}
     elif filters.get_count() == 1:
         filters.set_topicArray1(1,array.array1)
         filters.set_topicArray2(1,array.array2)
         filters.set_count(2)
-        return {"array1": {array.array1},"array2": {array.array2}}
+        return {"array1": array.array1, "array2": array.array2}
     elif filters.get_count() == 2:
         filters.set_topicArray1(2,array.array1)
         filters.set_topicArray2(2,array.array2)
         filters.set_count(3)
-        return {"array1": {array.array1},"array2": {array.array2}}
+        return {"array1": array.array1, "array2": array.array2}
     elif filters.get_count() == 3:
         filters.set_topicArray1(3,array.array1)
         filters.set_topicArray2(3,array.array2)
         filters.set_count(3)
-        return {"array1": {array.array1},"array2": {array.array2}}
+        return {"array1": array.array1, "array2": array.array2}
     else:
         return{"array": "erro"}
     
