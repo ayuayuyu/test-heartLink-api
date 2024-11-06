@@ -116,5 +116,5 @@ class filter:
         self.okCount = 0
         self.indexCount1 = 0
         self.indexCount2 = 0
-        self.topicId = []
-        self.topicArray = []
+        self.topicArray1 = []  
+        self.topicArray2 = []  
