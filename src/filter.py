@@ -27,8 +27,8 @@ class filter:
             self.topicId.append([])  # 空のリストを追加
         self.topicId[index].append(value)  # 指定インデックスに値を追加
 
-    def get_topicArray1(self):
-        return self.topicArray1
+    def get_topicArray1(self,value):
+        return self.topicArray1[value]
 
     def set_topicArray1(self, index, value):
         # 必要に応じてリストの長さを拡張
@@ -36,8 +36,8 @@ class filter:
             self.topicArray1.append([])  # 空のリストを追加
         self.topicArray1[index].append(value)  # 指定インデックスに値を追加
         
-    def get_topicArray2(self):
-        return self.topicArray2
+    def get_topicArray2(self,value):
+        return self.topicArray2[value]
 
     def set_topicArray2(self, index, value):
         # 必要に応じてリストの長さを拡張
