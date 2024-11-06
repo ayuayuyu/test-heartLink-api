@@ -43,7 +43,7 @@ class filter:
     def get_topicArray2(self,value):
         return self.topicArray2[value]
 
-    def get_topicArray2(self, value):
+    def set_topicArray2(self, value):
         if value < len(self.topicArray2):
             return self.topicArray2[value]
         else:
