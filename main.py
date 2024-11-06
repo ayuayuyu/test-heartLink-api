@@ -118,7 +118,7 @@ async def topicArray_endpoint(array:Array):
     else:
         return{"array": "erro"}
     
-@app.post("/getTopicArray")
+@app.get("/getTopicArray")
 async def getTopicArray_endpoint():
     return {"array1": {filters.get_topicArray1()}, "array2" : {filters.get_topicArray2()}}
     
