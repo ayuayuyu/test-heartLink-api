@@ -32,7 +32,7 @@ class filter:
 
     def set_topicArray1(self, index, value):
         # 必要に応じてリストの長さを拡張
-        while len(self.topicArray) <= index:
+        while len(self.topicArray1) <= index:
             self.topicArray1.append([])  # 空のリストを追加
         self.topicArray1[index].append(value)  # 指定インデックスに値を追加
         
@@ -41,7 +41,7 @@ class filter:
 
     def set_topicArray2(self, index, value):
         # 必要に応じてリストの長さを拡張
-        while len(self.topicArray) <= index:
+        while len(self.topicArray2) <= index:
             self.topicArray2.append([])  # 空のリストを追加
         self.topicArray2[index].append(value)  # 指定インデックスに値を追加
     #心拍数のセット
