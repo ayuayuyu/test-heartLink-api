@@ -120,7 +120,7 @@ async def topicArray_endpoint(array:Array):
     
 @app.get("/getTopicArray")
 async def getTopicArray_endpoint():
-    return {"array1": {filters.get_topicArray1()}, "array2" : {filters.get_topicArray2()}}
+    return {"array1": filters.get_topicArray1(), "array2": filters.get_topicArray2()}
     
 @app.get("/getName")
 async def getName_endpoint():
