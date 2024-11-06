@@ -20,7 +20,7 @@ filters = filter()
 # CORSの設定を追加
 app.add_middleware(
     CORSMiddleware,
-    allow_origins="*",  # すべてのオリジンを許可する場合
+    allow_origins=["*"],  # すべてのオリジンを許可する場合はリスト形式で指定
     allow_credentials=True,
     allow_methods=["*"],  # すべてのHTTPメソッドを許可 (GET, POSTなど)
     allow_headers=["*"],  # すべてのHTTPヘッダーを許可
