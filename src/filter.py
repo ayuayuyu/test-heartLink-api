@@ -41,8 +41,8 @@ class filter:
         self.topicArray1[index].append(value)  # 指定インデックスに値を追加
         
     def get_topicArray2(self,value):
-        if value < len(self.topicArray1):
-            return self.topicArray1[value]
+        if value < len(self.topicArray2):
+            return self.topicArray2[value]
         else:
             return None 
 
