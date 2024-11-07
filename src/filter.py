@@ -41,13 +41,16 @@ class filter:
         self.topicArray1[index].append(value)  # 指定インデックスに値を追加
         
     def get_topicArray2(self,value):
-        return self.topicArray2[value]
-
-    def set_topicArray2(self, value):
-        if value < len(self.topicArray2):
-            return self.topicArray2[value]
+        if value < len(self.topicArray1):
+            return self.topicArray1[value]
         else:
-            return None  # インデックスが範囲外の場合、デフォルト値として None を返す
+            return None 
+
+    def set_topicArray2(self,index, value):
+        # 必要に応じてリストの長さを拡張
+        while len(self.topicArray2) <= index:
+            self.topicArray2.append([])  # 空のリストを追加
+        self.topicArray2[index].append(value)  # 指定インデックスに値を追加
 
     #心拍数のセット
     def set_heart(self, heart_value: str):
